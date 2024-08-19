@@ -1,5 +1,9 @@
 name: Build
-on: push
+on:
+  push:
+    tags:
+      - 'v0.18' 
+
 jobs:
   PyInstaller:
     runs-on: ${{ matrix.os }}
@@ -12,6 +16,8 @@ jobs:
         shell: bash
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: 'a82f5ba' 
     - uses: actions/setup-python@v2
       with:
         python-version: 3.6
